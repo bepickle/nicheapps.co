@@ -50,6 +50,7 @@
       padding: 40px 32px;
       max-width: 440px;
       width: 100%;
+      margin-bottom: 40px;
     }
     .product-label {
       font-size: 11px;
@@ -70,12 +71,43 @@
       color: rgba(240, 240, 245, 0.6);
       margin-bottom: 24px;
     }
+    .product-features {
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .product-features li {
+      font-size: 14px;
+      color: rgba(240, 240, 245, 0.5);
+      line-height: 1.8;
+      list-style: none;
+      padding-left: 20px;
+      position: relative;
+    }
+    .product-features li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #4ecdc4;
+    }
     .product-link {
       display: inline-block;
-      color: #4ecdc4;
+      color: rgba(78, 205, 196, 0.6);
       font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .product-link:hover {
+      color: #4ecdc4;
+    }
+    .about {
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+    }
+    .about p {
       font-size: 14px;
-      cursor: default;
+      line-height: 1.7;
+      color: rgba(240, 240, 245, 0.4);
     }
     footer {
       padding: 32px 24px;
@@ -90,23 +122,45 @@
     footer a:hover {
       color: rgba(240, 240, 245, 0.6);
     }
+    .footer-links {
+      margin-top: 8px;
+    }
+    .footer-links a {
+      margin: 0 8px;
+    }
   </style>
 </head>
 <body>
   <main class="hero">
     <h1 class="logo">Niche Applications</h1>
     <p class="subtitle">Apps that solve everyday decisions</p>
+
     <div class="product">
       <p class="product-label">Our Product</p>
       <h2 class="product-name">Not That</h2>
       <p class="product-desc">
         Can't decide where to eat? Not That eliminates restaurants one by one until you have your answer. Play solo or decide together with friends in real time.
       </p>
-      <span class="product-link">Coming soon</span>
+      <ul class="product-features">
+        <li>Swipe to eliminate restaurants from nearby options</li>
+        <li>Multiplayer mode to decide together with friends</li>
+        <li>Smart filters for cuisine, price, distance, and more</li>
+        <li>Let the app decide when you can't choose</li>
+      </ul>
+      <a href="/privacy.html" class="product-link">Privacy Policy</a>
+    </div>
+
+    <div class="about">
+      <p>Niche Applications LLC builds focused, single-purpose apps that help people make everyday decisions faster. Based in Birmingham, Alabama.</p>
     </div>
   </main>
+
   <footer>
-    <p>&copy; 2026 Niche Applications &middot; <a href="mailto:hello@nicheapps.co">hello@nicheapps.co</a></p>
+    <p>&copy; 2026 Niche Applications LLC</p>
+    <div class="footer-links">
+      <a href="mailto:hello@nicheapps.co">hello@nicheapps.co</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </div>
   </footer>
 </body>
 </html>
