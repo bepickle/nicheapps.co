@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle Map — Not That</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0d0d1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    #map { width: 100%; height: 100vh; }
+    .leaflet-popup-content-wrapper {
+      background: #1a1a2e;
+      color: #f0f0f5;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .leaflet-popup-tip { background: #1a1a2e; }
+    .leaflet-popup-content { margin: 10px 14px; font-size: 14px; line-height: 1.5; }
+    .leaflet-popup-content strong { color: #4ecdc4; }
+    .leaflet-popup-content a { color: #4ecdc4; text-decoration: none; }
+    .leaflet-popup-content a:hover { text-decoration: underline; }
+    .popup-cuisine { color: rgba(240,240,245,0.5); font-size: 12px; }
+    .popup-distance { color: rgba(240,240,245,0.4); font-size: 12px; }
+    .back-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      background: #1a1a2e;
+      color: #4ecdc4;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .count-badge {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 1000;
+      background: #1a1a2e;
+      color: rgba(240,240,245,0.6);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:history.back()" class="back-link">&larr; Back to battle</a>
+  <div id="count" class="count-badge"></div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Parse URL params: ?pins=name|lat|lng|cuisine,name|lat|lng|cuisine,...&center=lat,lng
+    const params = new URLSearchParams(window.location.search);
+    const pinsRaw = params.get('pins') || '';
+    const centerRaw = params.get('center') || '';
+
+    const restaurants = pinsRaw.split(',').map(p => {
+      const [name, lat, lng, cuisine] = p.split('|');
+      if (!name || !lat || !lng) return null;
+      return { name: decodeURIComponent(name), lat: parseFloat(lat), lng: parseFloat(lng), cuisine: decodeURIComponent(cuisine || '') };
+    }).filter(Boolean);
+
+    // Default center
+    let centerLat = 33.5, centerLng = -86.8;
+    if (centerRaw) {
+      const [cLat, cLng] = centerRaw.split(',');
+      centerLat = parseFloat(cLat);
+      centerLng = parseFloat(cLng);
+    } else if (restaurants.length > 0) {
+      centerLat = restaurants.reduce((s, r) => s + r.lat, 0) / restaurants.length;
+      centerLng = restaurants.reduce((s, r) => s + r.lng, 0) / restaurants.length;
+    }
+
+    document.getElementById('count').textContent = `${restaurants.length} restaurants`;
+
+    const map = L.map('map').setView([centerLat, centerLng], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Custom teal marker
+    const tealIcon = L.divIcon({
+      className: '',
+      html: '<div style="width:12px;height:12px;background:#4ecdc4;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',
+      iconSize: [12, 12],
+      iconAnchor: [6, 6],
+      popupAnchor: [0, -8],
+    });
+
+    const bounds = [];
+    restaurants.forEach(r => {
+      const marker = L.marker([r.lat, r.lng], { icon: tealIcon }).addTo(map);
+      const cuisineHtml = r.cuisine ? `<div class="popup-cuisine">${r.cuisine}</div>` : '';
+      const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${r.lat},${r.lng}`;
+      marker.bindPopup(`<strong>${r.name}</strong>${cuisineHtml}<a href="${dirUrl}" target="_blank">Directions</a>`);
+      bounds.push([r.lat, r.lng]);
+    });
+
+    if (bounds.length > 1) {
+      map.fitBounds(bounds, { padding: [40, 40] });
+    } else if (bounds.length === 1) {
+      map.setView(bounds[0], 14);
+    }
+  </script>
+</body>
+</html>
