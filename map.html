@@ -88,7 +88,7 @@
       maxZoom: 18,
     }).addTo(map);
 
-    // Custom teal marker
+    // Custom teal marker for restaurants
     const tealIcon = L.divIcon({
       className: '',
       html: '<div style="width:12px;height:12px;background:#4ecdc4;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',
@@ -97,7 +97,30 @@
       popupAnchor: [0, -8],
     });
 
+    // User location marker — larger, distinct color
+    const locationIcon = L.divIcon({
+      className: '',
+      html: '<div style="width:18px;height:18px;background:#ff6b6b;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.4)"></div>',
+      iconSize: [18, 18],
+      iconAnchor: [9, 9],
+      popupAnchor: [0, -12],
+    });
+
     const bounds = [];
+
+    // Add user location pin if provided: loc=lat,lng,name
+    const locRaw = params.get('loc') || '';
+    if (locRaw) {
+      const [locLat, locLng, ...locNameParts] = locRaw.split(',');
+      const locName = decodeURIComponent(locNameParts.join(',') || 'Your location');
+      if (locLat && locLng) {
+        const lm = L.marker([parseFloat(locLat), parseFloat(locLng)], { icon: locationIcon, zIndexOffset: 1000 }).addTo(map);
+        lm.bindPopup(`<strong>${locName}</strong><div class="popup-cuisine">Search location</div>`);
+        bounds.push([parseFloat(locLat), parseFloat(locLng)]);
+      }
+    }
+
+    // Add restaurant pins
     restaurants.forEach(r => {
       const marker = L.marker([r.lat, r.lng], { icon: tealIcon }).addTo(map);
       const cuisineHtml = r.cuisine ? `<div class="popup-cuisine">${r.cuisine}</div>` : '';
