@@ -1,141 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Not That</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0d0d1a;
-      color: #e0e0e8;
-      line-height: 1.7;
-      padding: 40px 24px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 800;
-      color: #f0f0f5;
-      margin-bottom: 8px;
-    }
-    .updated {
-      font-size: 13px;
-      color: rgba(240,240,245,0.4);
-      margin-bottom: 32px;
-    }
-    h2 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #f0f0f5;
-      margin-top: 32px;
-      margin-bottom: 12px;
-    }
-    p, li {
-      font-size: 15px;
-      color: rgba(240,240,245,0.7);
-      margin-bottom: 12px;
-    }
-    ul {
-      padding-left: 20px;
-      margin-bottom: 12px;
-    }
-    li { margin-bottom: 6px; }
-    a {
-      color: #4ecdc4;
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-    .back {
-      display: inline-block;
-      margin-bottom: 24px;
-      font-size: 14px;
-      color: rgba(240,240,245,0.4);
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Not That</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         max-width: 720px; margin: 0 auto; padding: 32px 20px; line-height: 1.6;
+         color: #222; background: #fff; }
+  h1 { font-size: 1.6em; margin-bottom: 0.2em; }
+  h2 { font-size: 1.15em; margin-top: 1.8em; }
+  .meta { color: #666; font-size: 0.9em; margin-bottom: 2em; }
+  .summary { background: #f4f9f8; border: 1px solid #d5eae7; border-radius: 10px;
+             padding: 16px 20px; margin: 1.5em 0; }
+  a { color: #0e8074; }
+  li { margin-bottom: 0.4em; }
+</style>
 </head>
 <body>
-  <a href="/" class="back">&larr; nicheapps.co</a>
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: March 19, 2026</p>
 
-  <p>Not That ("the App") is operated by Niche Applications LLC ("we", "us", "our"). This privacy policy explains what information we collect, how we use it, and your choices.</p>
+<h1>Privacy Policy — Not That</h1>
+<p class="meta">Niche Applications, LLC · Effective: July 2, 2026</p>
 
-  <h2>Information We Collect</h2>
+<p>Not That is a restaurant-decision app made by Niche Applications, LLC
+("we", "us"), available on the App Store, Google Play, and the web. This policy
+describes what information the app handles and why. Questions:
+<a href="mailto:hello@nicheapps.co">hello@nicheapps.co</a>.</p>
 
-  <p><strong>Location data.</strong> When you grant permission, the App accesses your device's location to find restaurants near you. Your coordinates are sent to our server to query the Google Places API. If you manually enter a location instead, that text is sent to our server to convert to coordinates — the same data practices apply. We do not store your precise location on our servers — it is used only to fulfill the restaurant search and is discarded after the response is returned.</p>
+<div class="summary">
+<strong>The short version:</strong>
+<ul>
+<li>You can use Not That without creating an account.</li>
+<li>Your location is used only to find restaurants near you, only while you
+    use the app, and only with your permission. We don't keep a log of your
+    location or track where you go.</li>
+<li>Your favorites, blocked restaurants, and winner history stay on your
+    device unless you sign in to sync them.</li>
+<li>We don't sell your data, show ads, or share your information with anyone
+    except the service providers described below.</li>
+<li>You can delete your account and synced data at any time, in the app or on
+    the web.</li>
+</ul>
+</div>
 
-  <p><strong>Account information.</strong> If you sign in with Google (or Apple, when available), we receive your name, email address, and profile photo from the sign-in provider. This information is stored in Firebase Authentication and is used to identify your account for data sync.</p>
+<h2>1. Information we handle</h2>
 
-  <p><strong>User preferences.</strong> Your favorites, blocked restaurants, winner history, and saved filter presets are stored locally on your device and, if you are signed in, synced to Google Cloud Firestore so they are available across your devices. This data is associated with your account and is not shared with other users.</p>
+<p><strong>Account information.</strong> By default the app signs you in
+anonymously — a random identifier with no name or email attached. If you choose
+to sign in (Sign in with Apple on iOS; Apple, Google, Microsoft, or Facebook on
+the web), we receive your name, email address, and profile photo from the
+provider you pick. We use these only to label your account in the app and to
+sync your data across devices. Sign in with Apple lets you hide your real email
+address; that works fine with Not That.</p>
 
-  <p><strong>Usage data.</strong> The App logs anonymous session data locally on your device (number of rounds, filters used, completion rate). This data is not sent to our servers unless you are signed in, in which case aggregated preference data may be synced to improve your experience.</p>
+<p><strong>Location.</strong> With your permission, the app uses your device's
+location while you're using it, for one purpose: finding restaurants near you.
+Your coordinates are sent through our servers to Google's Places API to run the
+search. If you deny location permission, you can type a location instead; that
+text is sent to our servers to convert to coordinates, with the same handling.
+Results near frequently searched areas are cached so the app stays
+fast and affordable; cache entries expire automatically. That cache is organized by geographic area, not by person —
+we do not keep a log of your locations or build a profile of where you go.</p>
 
-  <h2>How We Use Your Information</h2>
-  <ul>
-    <li>To find restaurants near your location</li>
-    <li>To save and sync your preferences across devices</li>
-    <li>To personalize the "App Decides" feature based on your past choices</li>
-    <li>To improve the App's functionality and user experience</li>
-    <li>To generate aggregated, anonymized insights for restaurant partners</li>
-    <li>To display relevant promoted content within the App</li>
-  </ul>
+<p><strong>Content you create.</strong> Favorites, blocked restaurants, winner
+history, and filter presets are stored on your device. If you sign in, they're
+also stored in a per-user record in our database (Google Firebase) so they sync
+across your devices.</p>
 
-  <h2>Third-Party Services</h2>
-  <p>The App uses the following third-party services:</p>
-  <ul>
-    <li><strong>Google Places API</strong> — to search for and display restaurant information, photos, and reviews. Subject to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
-    <li><strong>Firebase (Google Cloud)</strong> — for user authentication, data storage, real-time multiplayer sync, and server-side caching. Subject to <a href="https://firebase.google.com/support/privacy">Firebase's Privacy Policy</a>.</li>
-    <li><strong>Affiliate partners</strong> — When you tap a link to order from or reserve at a restaurant (e.g., DoorDash, OpenTable), our affiliate network partner (Impact.com) may use cookies or tracking identifiers to attribute the referral. This is limited to the link you tapped and does not grant these partners access to your App data. Subject to their respective privacy policies.</li>
-  </ul>
-  <p>We do not sell your personal information. We do not use advertising networks or third-party analytics services.</p>
+<p><strong>Multiplayer sessions.</strong> When you start or join a group
+session, the session code, participants' votes, and round state are held in a
+temporary shared record so everyone's screens stay in sync. Your display name
+and votes are visible to the other people in your session. Sessions are
+short-lived and aren't used for anything beyond running the round.</p>
 
-  <h2>Data Sharing</h2>
-  <p>We do not share your personal information with third parties, except:</p>
-  <ul>
-    <li>With Google, as described above, to provide core App functionality</li>
-    <li>If required by law or to protect our legal rights</li>
-  </ul>
+<p><strong>Diagnostics.</strong> The app keeps a small error log and API-usage
+counters on your device to help with troubleshooting; you can view and clear
+them in Settings, and they aren't transmitted to us. Our servers keep standard
+request logs (your account identifier, timestamps, endpoint called) used for
+rate limiting, abuse prevention, and debugging.</p>
 
-  <h2>Aggregated Data & Analytics</h2>
-  <p>We may share <strong>aggregated, anonymized</strong> usage data with restaurant partners. This may include trends such as restaurant popularity, win rates, elimination frequency, and cuisine preferences in a given area.</p>
-  <p>This data is <strong>never individually identifiable</strong> — it cannot be traced back to a specific user. We do not share your personal information, account details, or individual choices with restaurant partners.</p>
+<h2>2. How we use information</h2>
+<ul>
+<li>To show you nearby restaurants and run searches you ask for.</li>
+<li>To sync your favorites, blocked list, history, and presets across devices
+    when you're signed in.</li>
+<li>To run multiplayer sessions.</li>
+<li>To keep the service reliable and prevent abuse.</li>
+</ul>
+<p>We do not sell personal information, use it for advertising, or share it
+with data brokers.</p>
 
-  <h2>Promoted Content</h2>
-  <p>Some restaurants within the App may be promoted by restaurant partners. Promoted restaurants may appear more frequently in the initial pool of options but are subject to the same user-driven elimination process as any other restaurant. The elimination algorithm treats promoted and non-promoted restaurants equally once they are in the pool.</p>
-  <p>Promotional partnerships do not involve sharing your personal data with the promoted restaurant.</p>
+<h2>3. Service providers</h2>
+<p>Not That is built on the following services, which process data on our
+behalf:</p>
+<ul>
+<li><strong>Google Firebase</strong> (authentication, database, hosting, cloud
+    functions) — stores account and sync data.
+    <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.</li>
+<li><strong>Google Maps Platform (Places API)</strong> — receives search
+    coordinates and queries to return restaurant results and photos.
+    <a href="https://policies.google.com/privacy">Google privacy policy</a>.</li>
+<li><strong>Sign-in providers</strong> (Apple, Google, Microsoft, Facebook) —
+    only if you choose to sign in with them; each has its own privacy
+    policy.</li>
+<li><strong>Expo (EAS Update)</strong> — delivers app updates; your device
+    contacts Expo's servers to check for a newer version of the app.</li>
+</ul>
 
-  <h2>Multiplayer Sessions</h2>
-  <p>When you use the "Decide Together" multiplayer feature, your chosen display name and elimination choices are shared with other participants in that session via Firebase Realtime Database. Session data is ephemeral and is not permanently stored.</p>
+<h2>4. Data retention and deletion</h2>
+<p>Synced data is kept while your account exists. Signing out does not delete
+your cloud data — deleting your account does. You can delete your account and
+all synced data at any time:</p>
+<ul>
+<li><strong>In the app:</strong> Settings → Delete my account. This permanently
+    removes your sign-in and your synced record, and clears local data on that
+    device.</li>
+<li><strong>On the web:</strong> visit
+    <a href="https://notthatapp-5c92e.web.app/delete-account">notthatapp-5c92e.web.app/delete-account</a>
+    to delete your account without the app installed.</li>
+</ul>
+<p>Local data (favorites, blocked list, history) can also be cleared anytime
+via Settings → Clear All Data. Server request logs are retained briefly for
+security and debugging, then deleted.</p>
 
-  <h2>Data Retention</h2>
-  <ul>
-    <li><strong>Account data:</strong> Retained as long as your account exists. You can delete your account directly in the App (Settings > Delete my account) or by contacting us.</li>
-    <li><strong>Synced preferences:</strong> Retained as long as your account exists. Signing out does not delete your cloud data.</li>
-    <li><strong>Server cache:</strong> Restaurant search results are cached on our servers for up to 24 hours to reduce API costs. Cache entries are automatically deleted via Firestore TTL policies.</li>
-    <li><strong>Local data:</strong> Stored on your device until you clear the App's data or uninstall it.</li>
-  </ul>
+<h2>5. Security</h2>
+<p>Data in transit is encrypted (HTTPS). Database access is restricted so that
+your synced record is readable only by your authenticated account, and internal
+restaurant caches aren't directly readable by clients. No system is perfectly
+secure, but we limit what we collect so there's little to lose.</p>
 
-  <h2>Your Choices</h2>
-  <ul>
-    <li><strong>Location:</strong> You can deny location permission and manually enter your location instead.</li>
-    <li><strong>Sign-in:</strong> You can use the App without signing in. Sign-in is only needed for cross-device sync.</li>
-    <li><strong>Account deletion:</strong> You can delete your account and all associated cloud data directly in the App via Settings > Delete my account. This permanently removes your Firestore data, Firebase account, and clears local data. You can also request deletion by contacting us at <a href="mailto:hello@nicheapps.co">hello@nicheapps.co</a>.</li>
-  </ul>
+<h2>6. Children</h2>
+<p>Not That is not directed at children under 13, and we don't knowingly
+collect personal information from them. If you believe a child has provided us
+personal information, contact us and we'll delete it.</p>
 
-  <h2>Children's Privacy</h2>
-  <p>The App is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us and we will promptly delete it.</p>
+<h2>7. Your rights</h2>
+<p>Depending on where you live (e.g., EU/EEA, UK, California), you may have
+rights to access, correct, delete, or export your personal information, and to
+object to certain processing. Most of these you can exercise directly in the
+app (view your data in Settings, delete your account). For anything else,
+email <a href="mailto:hello@nicheapps.co">hello@nicheapps.co</a> and we'll
+respond within 30 days. We don't discriminate against you for exercising your
+rights.</p>
 
-  <h2>Changes to This Policy</h2>
-  <p>We may update this privacy policy from time to time. We will notify you of significant changes by updating the "Last updated" date above. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+<h2>8. Changes to this policy</h2>
+<p>If we make material changes — for example, adding analytics — we'll update
+this page and the effective date above, and note the change in the app's
+release notes.</p>
 
-  <h2>Contact Us</h2>
-  <p>If you have questions about this privacy policy or your data, contact us at:</p>
-  <p>
-    Niche Applications LLC<br>
-    <a href="mailto:hello@nicheapps.co">hello@nicheapps.co</a>
-  </p>
+<h2>9. Contact</h2>
+<p>Niche Applications, LLC<br>
+<a href="mailto:hello@nicheapps.co">hello@nicheapps.co</a></p>
+
 </body>
 </html>
