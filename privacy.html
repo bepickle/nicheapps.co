@@ -20,7 +20,7 @@
 <body>
 
 <h1>Privacy Policy — Not That</h1>
-<p class="meta">Niche Applications, LLC · Effective: July 2, 2026</p>
+<p class="meta">Niche Applications, LLC · Effective: August 2, 2026</p>
 
 <p>Not That is a restaurant-decision app made by Niche Applications, LLC
 ("we", "us"), available on the App Store, Google Play, and the web. This policy
@@ -47,8 +47,8 @@ describes what information the app handles and why. Questions:
 
 <p><strong>Account information.</strong> By default the app signs you in
 anonymously — a random identifier with no name or email attached. If you choose
-to sign in (Sign in with Apple on iOS; Apple or Google on
-the web), we receive your name, email address, and profile photo from the
+to sign in (Sign in with Apple on iOS; Apple or Google on the web), we receive
+your name, email address, and profile photo from the
 provider you pick. We use these only to label your account in the app and to
 sync your data across devices. Sign in with Apple lets you hide your real email
 address; that works fine with Not That.</p>
@@ -83,9 +83,16 @@ named events, and we don't use analytics for advertising.</p>
 
 <p><strong>Diagnostics.</strong> The app keeps a small error log and API-usage
 counters on your device to help with troubleshooting; you can view and clear
-them in Settings, and they aren't transmitted to us. Our servers keep standard
-request logs (your account identifier, timestamps, endpoint called) used for
-rate limiting, abuse prevention, and debugging.</p>
+them in Settings, and that on-device log is not transmitted to us. In addition,
+when the app hits an error it sends an anonymous diagnostic event
+("client_error") through PostHog so we can find and fix problems. That event
+contains only a short error tag, a truncated error message (up to about 200
+characters), and your platform (iOS, Android, or web) — never your name,
+email, account, location, or the underlying error details. Like our other
+analytics, it carries a random identifier that is not linked to who you are, and
+it is never used for advertising. Our servers also keep standard request logs
+(your account identifier, timestamps, endpoint called) used for rate limiting,
+abuse prevention, and debugging.</p>
 
 <h2>2. How we use information</h2>
 <ul>
@@ -112,8 +119,8 @@ behalf:</p>
 <li><strong>Sign-in providers</strong> (Apple, Google) —
     only if you choose to sign in with them; each has its own privacy
     policy.</li>
-<li><strong>PostHog</strong> — receives the anonymous usage events described
-    above (no name, email, account, or location).
+<li><strong>PostHog</strong> — receives the anonymous usage and diagnostic
+    events described above (no name, email, account, or location).
     <a href="https://posthog.com/privacy">PostHog privacy policy</a>.</li>
 <li><strong>Expo (EAS Update)</strong> — delivers app updates; your device
     contacts Expo's servers to check for a newer version of the app.</li>
